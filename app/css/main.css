@@ -6,17 +6,21 @@ body{
 /*	LOGO	*/
 .logo{
 	position: absolute;
-	top: 10px;
-	left: 50px;
-	border: 
+	top: 5%;
+	left: 8%;
+	border: 1px solid #000;
+	text-transform: uppercase;
+	width: 200px;
+	padding:20px;
 }
 
 /*	widget	*/
 .widget{
 	position: absolute;
-	top:10px;
-	right:50px;
-
+	top:5%;
+	right:8%;
+	padding: 10px;
+	border: 1px solid #ff0000;
 }
 
 
@@ -24,7 +28,9 @@ body{
 .container{
 	position: relative;
 	float: left;
-	margin-top: 100px;
-	margin-left: 300px; 
-	width: 600px;
+	margin-top: 10%;
+	margin-left: 20%; 
+	width: 800px;
+	padding:10px;
+	border: 1px solid #00ff00;
 }

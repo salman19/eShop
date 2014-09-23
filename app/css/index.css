@@ -1,8 +1,11 @@
 section{
 	width:100px;
 	float: left;
+	padding: 10px;
+	border: 1px solid #00ffff;
 }
 
 section img{
-	width:40px;
+	width:80px;
+	border: 1px solid #0000ff;
 }
