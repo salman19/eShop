@@ -1,0 +1,30 @@
+/*	BODY 	*/
+body{
+	background-color: #eee;
+}
+
+/*	LOGO	*/
+.logo{
+	position: absolute;
+	top: 10px;
+	left: 50px;
+	border: 
+}
+
+/*	widget	*/
+.widget{
+	position: absolute;
+	top:10px;
+	right:50px;
+
+}
+
+
+/* container */
+.container{
+	position: relative;
+	float: left;
+	margin-top: 100px;
+	margin-left: 300px; 
+	width: 600px;
+}
