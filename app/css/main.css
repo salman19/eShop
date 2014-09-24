@@ -12,25 +12,44 @@ header{
 	width: 100%;
 	height: 100px;
 	margin-bottom: 5px;
+	padding-bottom: 10px;
 }
 
 /*	LOGO	*/
 .logo{
 	position: absolute;
-	top: 5%;
+	top: 20px;
 	left: 8%;
 	border: 1px solid transparent;
 	width: 200px;
 }
 
+.logo a{
+	color: inherit;
+	text-decoration: none;
+}	
+
 /*	widget	*/
 .widget{
 	position: absolute;
-	top:8%;
-	right:8%;
+	top: 30px;
+	right:100px;
 	border: 1px solid transparent;
 }
 
+/* user widget */
+.user {
+	width:150px;
+	text-align: center;
+}
+.user button{
+	float:right;
+	min-width: 70px;
+}
+.user img{
+	width: 60px;
+	float:left;
+}
 
 /* container */
 .container{
@@ -43,3 +62,6 @@ header{
 	padding-left: 50px;
 }
 
+.error{
+	color:#aa0000;
+}

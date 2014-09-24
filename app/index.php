@@ -1,10 +1,14 @@
 <?php
-	/*open db connection*/
+	
+	session_start();
+
+	/*	open db connection 	*/
 	mysql_connect('localhost', 'root', '');
 	mysql_select_db('eshop');
 
 	$products = mysql_query('select * from Products') or die(mysql_error());
 
+	
 	$_SESSION['user'] = mysql_fetch_array(mysql_query('select * from Users'));
 
 	mysql_close();
@@ -29,12 +33,12 @@
 				<div class="user">
 					<label><?php echo $_SESSION['user']['email']; ?></label>
 					<img src="<?php echo $_SESSION['user']['avatar'] ?>;">
-					<button>profile/history</button>
-					<button id="signout">sign out</button>
+					<button onclick="window.location='page/profile.php'">profile</button>
+					<button id="signout">logout</button>
 				</div>
 			<?php else: ?>
-				<button onclick="window.location='script/signin.php'">Login</button>
-				<button onclick="window.location='script/register.php'">Register</button>
+				<button onclick="window.location='page/signin.php'">Login</button>
+				<button onclick="window.location='page/register.php'">Register</button>
 			<?php endif; ?>	
 		</div>
 	</header>
@@ -51,7 +55,7 @@
 					<?php if($product['stock'] == 0): ?>
 						<label class="error">out of stock</label>
 					<?php else: ?>
-						<form action="script/buy.php" method="post">
+						<form action="page/buy.php" method="post">
 							<input type="hidden" name="product_id" value="<?php echo $product['id'];?>">
 							<button type="submit">Buy</button>
 						</form>
