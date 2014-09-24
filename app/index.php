@@ -9,7 +9,7 @@
 	$products = mysql_query('select * from Products') or die(mysql_error());
 
 	
-	$_SESSION['user'] = mysql_fetch_array(mysql_query('select * from Users'));
+	//$_SESSION['user'] = mysql_fetch_array(mysql_query('select * from Users'));
 
 	mysql_close();
 ?>
@@ -37,6 +37,7 @@
 					<button id="signout">logout</button>
 				</div>
 			<?php else: ?>
+				<br>
 				<button onclick="window.location='page/signin.php'">Login</button>
 				<button onclick="window.location='page/register.php'">Register</button>
 			<?php endif; ?>	
@@ -59,7 +60,7 @@
 							<input type="hidden" name="product_id" value="<?php echo $product['id'];?>">
 							<button type="submit">Buy</button>
 						</form>
-						<label class="price-tag"><?php echo $product['price']; ?></label>
+						<label class="price-tag">$<?php echo $product['price']; ?></label>
 					<?php endif; ?>
 				</div>
 			</section>

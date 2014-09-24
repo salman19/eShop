@@ -1,5 +1,5 @@
 $(function(){
-	$('#signout').on('click', function(){
+	$('#signout').on('click', function(e){
 		e.preventDefault();
 		$.ajax({
 			type: 'post',

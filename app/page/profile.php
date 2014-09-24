@@ -46,16 +46,15 @@
 			<div class="error"><h3>You must sign in to view this page</h3></div>
 		<?php else: ?>
 			<img src="../<?php echo $_SESSION['user']['avatar'] ?>">
-			<h1><label><?php echo $_SESSION['user']['first_name'];?></label>
-			<label><?php echo $_SESSION['user']['last_name'];?></label></h1>
-			<label><?php echo $_SESSION['user']['email'];?></label>
+			<big><label><?php echo $_SESSION['user']['first_name'];?> <?php echo $_SESSION['user']['last_name'];?></label></big>
+			<br><label><?php echo $_SESSION['user']['email'];?></label>
 
 			<form id="avatar-form" type="post">
 				<label>upload avatar</label><br>
 				<input type="file" name="avatar" id="avatar">
 				<button type="submit">change</button>
 			</form>
-			<label id="success-msg" class="error"></label>
+			<label id="success-msg" class="success"></label>
 		<?php endif; ?>	
 		<br>
 		<h3>History</h3>
