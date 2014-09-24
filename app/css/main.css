@@ -61,7 +61,7 @@ header{
 	height: 100px;
 	margin-bottom: 5px;
 	padding-bottom: 10px;
-	color:#eee;
+	color:#fcfcfc;
 
 }
 
@@ -134,7 +134,7 @@ header{
 }
 
 button{
-	background-color: #fff;
+	background-color: #fcfcfc;
 	color: #2980b9;
 	margin-top: 5px;
 	border-radius: 10px;
