@@ -47,7 +47,9 @@ header{
 	min-width: 70px;
 }
 .user img{
-	width: 60px;
+	width: 58px;
+	height: 48px;
+	border:2px solid #fff;
 	float:left;
 }
 

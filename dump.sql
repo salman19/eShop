@@ -54,7 +54,7 @@ CREATE TABLE `Users` (
   `email` varchar(128) NOT NULL,
   `first_name` varchar(60) DEFAULT NULL,
   `last_name` varchar(60) DEFAULT NULL,
-  `avatar` varchar(200) DEFAULT NULL,
+  `avatar` varchar(128) DEFAULT 'avatar/default.png',
   `password` varchar(6) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
@@ -67,7 +67,7 @@ CREATE TABLE `Users` (
 
 LOCK TABLES `Users` WRITE;
 /*!40000 ALTER TABLE `Users` DISABLE KEYS */;
-INSERT INTO `Users` VALUES (1,'nada@mail.com','nada','fadali',NULL,'yacute');
+INSERT INTO `Users` VALUES (1,'nada@mail.com','nada','fadali','avatar/1-hii.jpg','yacute');
 /*!40000 ALTER TABLE `Users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -82,6 +82,8 @@ CREATE TABLE `UsersProducts` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) unsigned DEFAULT NULL,
   `product_id` int(11) unsigned DEFAULT NULL,
+  `bought_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `product_name` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_user` (`user_id`),
   KEY `fk_product` (`product_id`),
@@ -108,4 +110,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-24 11:03:29
+-- Dump completed on 2014-09-24 12:18:01

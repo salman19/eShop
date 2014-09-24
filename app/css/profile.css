@@ -1,0 +1,16 @@
+img{
+	float: left;
+	display: block;
+	margin-right: 10px;
+	width: 200px;
+	height: 200px;
+	border: 2px solid #fff;
+}
+
+#avatar-form{
+	border:1px solid #fff;
+	background-color: #fcfcfc;
+	padding:10px 0 10px 20px; 
+	line-height: 30px; 
+	margin-top: 20px;
+}

@@ -32,7 +32,7 @@
 			<?php if(isset($_SESSION['user'])): ?>
 				<div class="user">
 					<label><?php echo $_SESSION['user']['email']; ?></label>
-					<img src="<?php echo $_SESSION['user']['avatar'] ?>;">
+					<img src="<?php echo $_SESSION['user']['avatar'] ?>">
 					<button onclick="window.location='page/profile.php'">profile</button>
 					<button id="signout">logout</button>
 				</div>

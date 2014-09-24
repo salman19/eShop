@@ -1,5 +1,6 @@
 $(function(){
 	$('#signout').on('click', function(){
+		e.preventDefault();
 		$.ajax({
 			type: 'post',
 			url: 'script/session_terminate.php',
