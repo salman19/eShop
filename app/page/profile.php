@@ -37,7 +37,7 @@
 		<?php if(!isset($_SESSION['user'])): ?>
 			<div class="error"><h3>You must sign in to view this page</h3></div>
 		<?php else: ?>
-
+			
 		<?php endif; ?>	
 	</div>
 

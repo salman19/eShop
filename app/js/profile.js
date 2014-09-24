@@ -2,7 +2,7 @@ $(function(){
 	$('#signout').on('click', function(){
 		$.ajax({
 			type: 'post',
-			url: 'session_terminate.php',
+			url: '../script/session_terminate.php',
 			dataType: 'text',
 			success: function(data, textStatus, jqXHR){
 				console.log(data);
