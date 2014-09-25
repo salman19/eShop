@@ -5,13 +5,18 @@
 	mysql_connect('localhost', 'root', '');
 	mysql_select_db('eshop');
 
-$email= $_POST['email']
-$first_name= $_POST['first_name'];
-$last_name= $_POST['last_name'];
-$avatar= $_POST['avatar'];
-$password= $_POST['password'];
 
-mysql_query("INSERT INTO user(email, first_name, last_name, avatar, password)VALUES('$email','$first_name', '$last_name', '$avatar', '$password')");
+	 if (isset($_POST['submit']))
+    {
+		$email = $_POST['email']; 
+		$first_name = $_POST['first_name'];
+		$last_name = $_POST['last_name'];
+		$avatar = $_POST['avatar']; 
+		$password = $_POST['password']; 
+		mysql_query("INSERT INTO users(email, first_name, last_name, avatar, password)
+		VALUES('$email','$first_name', '$last_name', '$avatar', '$password')"); 
+	}
+
 mysql_close();
 ?>
 
@@ -31,11 +36,11 @@ mysql_close();
 			
 <div class= "form">	
 	
-	<form id="register" name="register" method="post" action="register.php" onsubmit="signin.php"> 
+	<form id="register" name="register" method="post" action="signin.php" onsubmit="return validateForm()"> 
 	
 	<table width="510" border="0" align="center">
 		<tr>
-			<td><b>Register</b></td>
+			<td><b>Register Form</b></td>
 			<td><div id="error"></div></td>
 		</tr>
 		<tr><td></td></tr>
@@ -63,7 +68,7 @@ mysql_close();
 		</tr>
 		<tr>
 			<td>&nbsp;</td>
-			<td><input type="submit" name="button" id="button" value="Register" /> 
+			<td><input type="submit" name="button" id="button" value="Register"/> 
 		
 		</tr>
 		
@@ -74,7 +79,7 @@ mysql_close();
 
 
 <script src="../js/jquery-1.11.1.min.js"></script>
-<script src="../js/registration.js"></script>
+<script src="../js/register.js"></script>
 </body>
 </html>
 

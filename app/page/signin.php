@@ -42,11 +42,11 @@ if(isset($_POST['submit']))
 			
 <div class= "form">	
 	
-	<form id="signin" name="signin" method="post" action="signin.php" onsubmit="return validateForm()"> 
+	<form id="signin" name="signin" method="post" action="profile.php" onsubmit="return validateForm()"> 
 	
 	<table width="510" border="0" align="center">
 		<tr>
-			<td><b>Sign in</b></td>
+			<td><b>Sign in Form</b></td>
 			<td><div id="error"></div></td>
 		</tr>
 		<tr><td></td></tr>
@@ -62,13 +62,18 @@ if(isset($_POST['submit']))
 		</tr>
 		<tr>
 			<td>&nbsp;</td>
-			<td><input type="submit" name="button" id="button" value="Submit" /> 
-			<a href = "profile.php"><input name= "register" type= "submit" value="Register"> </a></td>
+			<td><input type="submit" name="button" id="button" value="Sign in " /> 
+			</td>
 		</tr>
 		
 	</table>
 	</form>
+	
 </div>
+<div class = "widget"> 
+		<p> If you are not a user , please   
+		<a href = "register.php"><input name= "register" type= "submit" action="register.php" value="Register"> </a> </p>
+	</div>
 
 
 

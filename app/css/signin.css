@@ -37,16 +37,34 @@ position: absolute;
 }
 
 
-button{
+input{
 	background-color: #fcfcfc;
 	color: #2980b9;
 	margin-top: 5px;
 	border-radius: 10px;
 	letter-spacing: 1px;
-	font-size: 12px;
+	font-size: 15px;
 	-webkit-transition: all 5ms ease;
 	-moz-transition: all 5ms ease;
 	-ms-transition: all 5ms ease;
 	-o-transition: all 5ms ease;
 	transition: all 5ms ease;
 }
+
+input:hover {
+	border-radius: 4px;
+	background-color: #2980b9;
+	color: #fff;
+	-webkit-transition: all 5ms ease;
+	-moz-transition: all 5ms ease;
+	-ms-transition: all 5ms ease;
+	-o-transition: all 5ms ease;
+	transition: all 5ms ease;
+}
+.widget{
+	position: absolute;
+	top: 30px;
+	right:100px;
+	border: 1px solid transparent;
+}
+
