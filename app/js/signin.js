@@ -1,16 +1,16 @@
 <script type="text/javascript">
 function validateForm()
 {
-	var user=document.signin.email.value;
-	var pass=document.signin.password.value;
+	var email=document.signin.email.value;
+	var password=document.signin.password.value;
  
-	if(user == '')
+	if(email == '')
 	{
 		document.getElementById('error').innerHTML="Please Enter Email";
 		return false;
 	}
  
-	if(pass == '')
+	if(password == '')
 	{
 		document.getElementById('error').innerHTML="Please Enter Password";
 		return false;
