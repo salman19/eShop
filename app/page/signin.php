@@ -8,20 +8,19 @@
 
 	$email = $_POST['email'];
 	$password = $_POST['password'];
-	$data = mysql_query("select * from users where email='$_POST[email]' AND password='$_POST[password]'") or die(mysql_error());
-	$row = mysql_fetch_array($data) or die(mysql_error()); 
-	if(!empty($row['email']) AND !empty($row['password'])) {
-		$_SESSION['email'] = $row['password']; 
-		echo "SUCCESSFULLY LOGIN TO USER PROFILE PAGE...";
+	$login = mysql_query("select * from users where email='$_POST[email]' AND password='md5 $_POST[password]'") or die(mysql_error());
+	
+	// Check username and password match
+	$rowcount = mysql_num_rows($login);
+	if ($rowcount == 1) {
+		// Set email session variable
+		$_SESSION['email'] = $email;
+		// Jump to profile page
+		header('Location: ../../profile.php');
 	}
-	else {
-		echo "SORRY... YOU ENTERD WRONG ID AND PASSWORD... PLEASE RETRY..."; 
-		}
-
-if(isset($_POST['submit']))
-{
-	SignIn();
-}
+	else { 
+	header('Location:login.php');
+	}
 }
 	
 //	mysql_close();
@@ -34,6 +33,8 @@ if(isset($_POST['submit']))
 	<title>Sign In</title>
 
 	<link rel="stylesheet" type="text/css" href="../css/signin.css">
+	<script src="../js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="../js/signin.js"></script>
 	
 </head>
 <body>
@@ -42,7 +43,7 @@ if(isset($_POST['submit']))
 			
 <div class= "form">	
 	
-	<form id="signin" name="signin" method="post" action="profile.php" onsubmit="return validateForm()"> 
+	<form id="signin" name="signin" method="post" action="profile.php" onsubmit="return validateForm(this)"> 
 	
 	<table width="510" border="0" align="center">
 		<tr>
@@ -77,7 +78,6 @@ if(isset($_POST['submit']))
 
 
 
-<script src="../js/jquery-1.11.1.min.js"></script>
-<script src="../js/signin.js"></script>
+
 </body>
 </html>
