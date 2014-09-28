@@ -43,12 +43,15 @@
 	</header>
 
 	<div class="container">
+		<h2>Transaction</h2>
 		<?php if (!isset($_SESSION['user'])): ?>
-			<h2 class="error"> you must log in to complete this transaction.</h2>
+			<big class="error"> you must log in to complete this transaction.</big>
+			 Please <a href="signin.php">sign in</a> before performing this transaction
 		<?php else: ?>
-			<h2>Transaction</h2>
-			<?php echo $product['name'] ?>
-			<br>$<?php echo $product['price'] ?>
+			<ul>
+				<li><?php echo $product['name'] ?></li> $<?php echo $product['price'] ?>
+			</ul>
+			 
 			<input type="hidden" id="product_id" value="<?php echo $product_id ?>">
 			<br><button id="checkout">Checkout</button>
 		<?php endif; ?>

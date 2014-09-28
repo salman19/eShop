@@ -1,29 +1,25 @@
 img{
 	float: left;
-	display: block;
+	display: inline-block;
 	margin-right: 10px;
 	width: 200px;
 	height: 200px;
-	border: 2px solid #fff;
+	border: 3px solid #BE5E6A;
 }
 
 #avatar-form{
 	padding:10px 0 10px 20px; 
 	line-height: 30px; 
 	margin-top: 20px;
-	color: #2980b9;
 }
 
 #avatar-form label{
 	font-style: italic;
 	padding:0 0 2px 2px; 
-	border-bottom: 2px solid #2980b9;
-	border-left: 2px solid #2980b9;
+
 }
 
 #avatar-form button{
-	background-color: #2980b9;
-	color:#eee;
 	font-size: 13px;
 }
 

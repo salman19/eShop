@@ -5,12 +5,7 @@
 	/*	open db connection 	*/
 	mysql_connect('localhost', 'root', '');
 	mysql_select_db('eshop');
-
 	$products = mysql_query('select * from Products') or die(mysql_error());
-
-	
-	//$_SESSION['user'] = mysql_fetch_array(mysql_query('select * from Users'));
-
 	mysql_close();
 ?>
 
@@ -26,18 +21,18 @@
 	<header>
 		<!-- LOGO -->
 		<div class="logo"><h1>eShop</h1></div>
-			
+		
+		<hr>
 		<!-- Register/Login button OR User session info -->
 		<div class="widget">
 			<?php if(isset($_SESSION['user'])): ?>
 				<div class="user">
-					<label><?php echo $_SESSION['user']['email']; ?></label>
-					<img src="<?php echo $_SESSION['user']['avatar'] ?>">
+					<label><?php echo $_SESSION['user']['email']; ?></label><br>
+					<img src="<?php echo $_SESSION['user']['avatar'] ?>"><br>
 					<button onclick="window.location='page/profile.php'">profile</button>
 					<button id="signout">logout</button>
 				</div>
 			<?php else: ?>
-				<br>
 				<button onclick="window.location='page/signin.php'">Login</button>
 				<button onclick="window.location='page/register.php'">Register</button>
 			<?php endif; ?>	
@@ -49,7 +44,7 @@
 		<h2>Stock</h2>
 		<?php while($product = mysql_fetch_array($products)): ?>
 			<section>
-				<label class="product-name"><?php echo $product['name']; ?></label>
+				<label class="product-name"><?php echo $product['name']; ?></label><br>
 				<img src="<?php echo $product['image_url'] ?>">
 				<!-- BUY / OUT OF STOCK -->
 				<div class="product-info">
@@ -58,7 +53,8 @@
 					<?php else: ?>
 						<form action="page/buy.php" method="post">
 							<input type="hidden" name="product_id" value="<?php echo $product['id'];?>">
-							<button type="submit">Buy</button>
+							<button type="submit">
+								Buy</button>
 						</form>
 						<label class="price-tag">$<?php echo $product['price']; ?></label>
 					<?php endif; ?>

@@ -1,59 +1,49 @@
 section{
-	width:30%;
+	width: 300px;
+	height: 250px;
+	margin-bottom: 10px;
+	margin-right: 20px;
+	padding: 10px 0 10px 0;
+	background-color: #D69B7D;
+	color: #F8E5C4;
 	float: left;
-	height:300px;
-	margin-bottom: 30px;
-	margin-right: 50px;
-	margin-left: 50px;
-	padding-right: 10px;
-	padding-top:5px;
-	border: 2px solid #2980b9;
-	padding-left: 10px;
-	text-align: center;
 	position: relative;
-	background-color: #3498db;
-	border-radius: 20px;
-	box-shadow: 0px 2px 2px 0px #2980b9;
-}
+	box-shadow: 8px 0 0 0 #BE5E6A;
+	margin-left: 40px;
+}	
 
-section:hover{
-	box-shadow: 0px 2px 2px 0px #2c3e50;
+section img{
+	border:2px solid #fff;
+	border-radius: 10px;
+	display: block;
+	margin-top: 15px;
+	position: relative;
+	left:70px;
 }
 
 section form{
 	display: inline;
 }
 
-section img{
-	border:2px solid #fff;
-	padding: 10px; 
-	position: relative;
-	margin-top: 28%;
-	margin-bottom: 30%;
-	border-radius: 10px;
-}
-
 .product-name{
-	position: absolute;
+	position: relative;
 	width: 200px;
 	top: 15px;
-	left: 30px;
+	left: 45px;
 	padding: 2px;
-	background-color: #fcfcfc;
-	border-radius: 10px;
+	background-color: #D77260;
+	display: block;
+	text-align: center;
 }
 
+.price-tag{
+	padding: 3px;
+	font-size: 17px;
+	font-style: italic;
+}
 
 .product-info{
 	position: absolute;
 	bottom: 20px;
 	right: 2%; 
 }
-
-.price-tag{
-	color:#eee;
-	padding: 3px;
-	font-size: 17px;
-	font-style: italic;
-}
-
