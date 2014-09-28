@@ -6,18 +6,22 @@
 	mysql_select_db('eshop');
 
 
-	 if (isset($_POST['submit']))
+	 if (isset($_POST['email']) && isset($_POST['password']))
     {
 		$email = $_POST['email']; 
 		$first_name = $_POST['first_name'];
 		$last_name = $_POST['last_name'];
-		$avatar = $_POST['avatar']; 
+		$avatar = 'avatar/' .$_FILES['avatar']['name']; 
 		$password = $_POST['password']; 
-		mysql_query("INSERT INTO users(email, first_name, last_name, avatar, password)
-		VALUES('$email','$first_name', '$last_name', '$avatar', '$password')"); 
+		mysql_query(
+			"INSERT INTO Users(email, first_name, last_name, password)
+			VALUES('$email','$first_name', '$last_name', '$password')"
+		) 
+		or die(mysql_error()); 
+		header("Location: signin.php");
 	}
 
-mysql_close();
+	mysql_close();
 ?>
 
 
@@ -36,7 +40,8 @@ mysql_close();
 			
 <div class= "form">	
 	
-	<form id="register" name="register" method="post" action="signin.php" onsubmit="return validateForm()"> 
+	<form id="register" name="register" method="post" action="" 
+	onsubmit="return validateForm()" enctype="multipart/form-data"> 
 	
 	<table width="510" border="0" align="center">
 		<tr>
@@ -60,7 +65,7 @@ mysql_close();
 		</tr>
 		<tr>
 			<td>Avatar:</td>
-			<td> <input type="file" name="datafile" size="40"> </td>
+			<td> <input type="file" name="avatar" id="avatar"> </td>
 		</tr>
 		<tr>
 			<td>Password</td>

@@ -1,29 +1,25 @@
 <?php
-	function SignIn()  {
 	session_start();
+	$rowcount = 1;
 
 	/*	open db connection 	*/
 	mysql_connect('localhost', 'root', '');
 	mysql_select_db('eshop');
 
-	$email = $_POST['email'];
-	$password = $_POST['password'];
-	$login = mysql_query("select * from users where email='$_POST[email]' AND password='md5 $_POST[password]'") or die(mysql_error());
-	
-	// Check username and password match
-	$rowcount = mysql_num_rows($login);
-	if ($rowcount == 1) {
-		// Set email session variable
-		$_SESSION['email'] = $email;
-		// Jump to profile page
-		header('Location: ../../profile.php');
+	if(isset($_POST['email']) && isset($_POST['password'])) {
+		$email = $_POST['email'];
+		$password = $_POST['password'];
+		$login = mysql_query(
+			"select * from Users where email='$email' AND password='$password'") 
+			or die(mysql_error());
+		
+		// Check username and password match
+		$rowcount = mysql_num_rows($login);
+		if ($rowcount == 1) {
+			$_SESSION['user'] = mysql_fetch_array($login);
+			header('Location: profile.php');
+		}
 	}
-	else { 
-	header('Location:login.php');
-	}
-}
-	
-//	mysql_close();
 ?>
 
 
@@ -40,10 +36,15 @@
 <body>
 <!-- LOGO -->
 		<div class="logo"><h1><a href="../index.php">eShop</a></h1></div>
+
+		<?php if(isset($_SESSION['user'])): ?>
+			<h2> You are already signed in</h2>
+		<?php else: ?>
 			
 <div class= "form">	
 	
-	<form id="signin" name="signin" method="post" action="profile.php" onsubmit="return validateForm(this)"> 
+	<form id="signin" name="signin" method="post" action="" 
+		onsubmit="return validateForm(this)"> 
 	
 	<table width="510" border="0" align="center">
 		<tr>
@@ -58,26 +59,29 @@
 			<td><input type="text" name="email" id="email" /></td>
 		</tr>
 		<tr>
-			<td>Password</td>
-			<td><input type="password" name="password" id="password" /></td>
+			<td>Password: </td>
+			<td><input type="password" name="password" id="password" required/></td>
 		</tr>
 		<tr>
 			<td>&nbsp;</td>
-			<td><input type="submit" name="button" id="button" value="Sign in " /> 
+			<td><input type="submit" name="button" id="button" value="Sign in" /> 
 			</td>
 		</tr>
-		
 	</table>
+		<?php if($rowcount != 1): ?>
+			<label class="error">Email or password are incorrect</label>
+		<?php endif; ?>
 	</form>
 	
 </div>
 <div class = "widget"> 
 		<p> If you are not a user , please   
-		<a href = "register.php"><input name= "register" type= "submit" action="register.php" value="Register"> </a> </p>
+		<a href = "register.php"><input name= "register" type= "submit" 
+			action="register.php" value="Register"> </a> </p>
 	</div>
 
 
-
+<?php endif; ?>
 
 </body>
 </html>
