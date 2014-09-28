@@ -63,7 +63,7 @@
 			<?php else: ?>
 				<ul>
 					<?php while($purchase = mysql_fetch_array($purchases)): ?>
-						<li>
+						<li style="list-style:none;">
 							<i class="icon-angle-circled-right"></i> You bought <b><?php echo $purchase['product_name'] . '</b> at <i>'. $purchase['bought_at'] ?></i>.
 						</li>
 					<?php endwhile; ?>

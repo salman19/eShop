@@ -52,8 +52,10 @@
 			<ul>
 				<li><?php echo $product['name'] ?></li> <i class="icon-dollar"></i><?php echo $product['price'] ?>
 			</ul>
-			 
+			
+			<input type="hidden" id="product_name" value="<?php echo $product['name'] ?>">
 			<input type="hidden" id="product_id" value="<?php echo $product_id ?>">
+			<input type="hidden" id="user_id" value="<?php echo $_SESSION['user']['id'] ?>">
 			<br><button id="checkout"><i class="icon-basket"></i> Checkout</button>
 		<?php endif; ?>
 	</div>

@@ -1,11 +1,14 @@
 $("#checkout").on('click', function(e) {
 	e.preventDefault();
 	var product_id = $('#product_id').val();
+	var user_id = $('#user_id').val();
+	var product_name = $('#product_name').val();
 
+	console.log({'product_id': product_id, 'user_id': user_id, 'product_name': product_name});
 	$.ajax({
 		type: 'POST',
 		url: '../script/checkout.php',
-		data: {'product_id': product_id},
+		data: {'product_id': product_id, 'user_id': user_id, 'product_name': product_name},
 		success: function(data, textStatus, jqXHR){
 			alert(data);
 			window.location="../index.php";
