@@ -31,6 +31,7 @@
 
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
 	<link rel="stylesheet" type="text/css" href="../css/signin.css">
+	<link rel="stylesheet" type="text/css" href="../fontello/css/fontello.css">
 	
 </head>
 <body>
@@ -56,17 +57,17 @@
 				<tr><td></td></tr>
 				<tr>
 					<td>Email:</td>
-					<td><input type="text" name="email" id="email" /></td>
+					<td><input type="text" name="email" id="email" /><i class="icon-mail"></i></td>
 				</tr>
 				<tr><td></td></tr>
 				<tr>
 					<td>First Name:</td>
-					<td><input type="text" name="first_name" id="first_name" /></td>
+					<td><input type="text" name="first_name" id="first_name" /><i class="icon-user"></i></td>
 				</tr>
 				<tr><td></td></tr>
 				<tr>
 					<td>Last Name:</td>
-					<td><input type="text" name="last_name" id="last_name" /></td>
+					<td><input type="text" name="last_name" id="last_name" /><i class="icon-user"></i></td>
 				</tr>
 				<tr><td></td></tr>
 				<tr>
@@ -76,12 +77,13 @@
 				<tr><td></td></tr>
 				<tr>
 					<td>Password</td>
-					<td><input type="password" name="password" id="password" /></td>
+					<td><input type="password" name="password" id="password" /><i class="icon-lock"></i></td>
 				</tr>
+				<tr><td></td></tr>
 				<tr><td></td></tr>
 				<tr>
 					<td>&nbsp;</td>
-					<td><button type="submit" name="button" id="button">Register</button> 
+					<td><button type="submit" name="button" id="button">Register <i class="icon-angle-circled-right"></i></button> 
 				</tr>
 			</table>
 			</form>

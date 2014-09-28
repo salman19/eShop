@@ -23,6 +23,7 @@
 	<title>eShop</title>
 
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<link rel="stylesheet" type="text/css" href="../fontello/css/fontello.css">
 </head>
 <body>
 	<header>
@@ -45,15 +46,15 @@
 	<div class="container">
 		<h2>Transaction</h2>
 		<?php if (!isset($_SESSION['user'])): ?>
-			<big class="error"> you must log in to complete this transaction.</big>
+			<big class="error"><i class="icon-attention"></i>you must log in to complete this transaction.</big>
 			 Please <a href="signin.php">sign in</a> before performing this transaction
 		<?php else: ?>
 			<ul>
-				<li><?php echo $product['name'] ?></li> $<?php echo $product['price'] ?>
+				<li><?php echo $product['name'] ?></li> <i class="icon-dollar"></i><?php echo $product['price'] ?>
 			</ul>
 			 
 			<input type="hidden" id="product_id" value="<?php echo $product_id ?>">
-			<br><button id="checkout">Checkout</button>
+			<br><button id="checkout"><i class="icon-basket"></i> Checkout</button>
 		<?php endif; ?>
 	</div>
 

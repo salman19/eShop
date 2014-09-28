@@ -16,6 +16,7 @@
 
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="fontello/css/fontello.css">
 </head>
 <body>
 	<header>
@@ -27,7 +28,7 @@
 		<div class="widget">
 			<?php if(isset($_SESSION['user'])): ?>
 				<div class="user">
-					<label><?php echo $_SESSION['user']['email']; ?></label><br>
+					<label><i class="icon-mail"></i> <?php echo $_SESSION['user']['email']; ?></label><br>
 					<img src="<?php echo $_SESSION['user']['avatar'] ?>"><br>
 					<button onclick="window.location='page/profile.php'">profile</button>
 					<button id="signout">logout</button>
@@ -56,7 +57,7 @@
 							<button type="submit">
 								Buy</button>
 						</form>
-						<label class="price-tag">$<?php echo $product['price']; ?></label>
+						<label class="price-tag"><i class="icon-tag"></i><?php echo $product['price']; ?></label>
 					<?php endif; ?>
 				</div>
 			</section>

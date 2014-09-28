@@ -31,6 +31,7 @@
 
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
 	<link rel="stylesheet" type="text/css" href="../css/signin.css">
+	<link rel="stylesheet" type="text/css" href="../fontello/css/fontello.css">
 	
 </head>
 <body>
@@ -61,20 +62,22 @@
 				<tr><td></td></tr>
 				<tr>
 					<td>Email:</td>
-					<td><input type="text" name="email" id="email" /></td>
+					<td><input type="text" name="email" id="email" /><i class="icon-mail"></i></td>
 				</tr>
 				<tr>
 					<td>Password: </td>
-					<td><input type="password" name="password" id="password" required/></td>
+					<td><input type="password" name="password" id="password" required/><i class="icon-lock"></i></td>
 				</tr>
+				<tr><td></td></tr>
+				<tr><td></td></tr>
 				<tr>
 					<td>&nbsp;</td>
-					<td><button type="submit" name="button" id="button">Sign in</button> 
+					<td><button type="submit" name="button" id="button">Sign in <i class="icon-angle-circled-right"></i></button> 
 					</td>
 				</tr>
 			</table>
 				<?php if($rowcount != 1): ?>
-					<label class="error">Email or password are incorrect</label>
+					<label class="error"><i class="icon-attention"></i> Email or password are incorrect</label>
 				<?php endif; ?>
 			</form>
 		</div>

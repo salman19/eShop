@@ -17,6 +17,7 @@
 
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
 	<link rel="stylesheet" type="text/css" href="../css/profile.css">
+	<link rel="stylesheet" type="text/css" href="../fontello/css/fontello.css">s
 </head>
 <body>
 	<header>
@@ -43,7 +44,7 @@
 	<div class="container">
 		<h2>Profile</h2>
 		<?php if(!isset($_SESSION['user'])): ?>
-			<div class="error"><big>You must sign in to view this page</big></div>
+			<div class="error"><i class="icon-attention"></i>You must sign in to view this page</div>
 		<?php else: ?>
 			<img src="../<?php echo $_SESSION['user']['avatar'] ?>">
 			<big><label><?php echo $_SESSION['user']['first_name'];?> <?php echo $_SESSION['user']['last_name'];?></label></big>
@@ -58,12 +59,12 @@
 			<br>
 			<h3>History</h3>
 			<?php if(mysql_num_rows($purchases) == 0): ?>
-				<label class="error">No purchases made yet. <a href="../index.php">Go to shop</a>
+				<label class="error"><i class="icon-attention"></i> No purchases made yet. <a href="../index.php">Go to shop</a>
 			<?php else: ?>
 				<ul>
 					<?php while($purchase = mysql_fetch_array($purchases)): ?>
 						<li>
-							You bought <b><?php echo $purchase['product_name'] . '</b> at <i>'. $purchase['bought_at'] ?></i>.
+							<i class="icon-angle-circled-right"></i> You bought <b><?php echo $purchase['product_name'] . '</b> at <i>'. $purchase['bought_at'] ?></i>.
 						</li>
 					<?php endwhile; ?>
 				</ul>
