@@ -52,7 +52,7 @@
 
 			<form id="avatar-form">
 				<label><i class="icon-user"></i>upload avatar</label><br>
-				<input type="file" name="avatar" id="avatar">
+				<input type="file" name="avatar" id="avatar" required>
 				<button type="submit">change</button>
 			</form>
 			<label id="success-msg" class="success"></label>
