@@ -50,8 +50,8 @@
 			<big><label><?php echo $_SESSION['user']['first_name'];?> <?php echo $_SESSION['user']['last_name'];?></label></big>
 			<br><label><?php echo $_SESSION['user']['email'];?></label>
 
-			<form id="avatar-form" type="post">
-				<label>upload avatar</label><br>
+			<form id="avatar-form">
+				<label><i class="icon-user"></i>upload avatar</label><br>
 				<input type="file" name="avatar" id="avatar">
 				<button type="submit">change</button>
 			</form>
