@@ -47,7 +47,7 @@
 		<h2>Transaction</h2>
 		<?php if (!isset($_SESSION['user'])): ?>
 			<big class="error"><i class="icon-attention"></i>you must log in to complete this transaction.</big>
-			 Please <a href="signin.php">sign in</a> before performing this transaction
+			 Please <a href="signin.php">sign in</a> or <a href="regester.php">register</a> before performing this transaction
 		<?php else: ?>
 			<ul>
 				<li><?php echo $product['name'] ?></li> <i class="icon-dollar"></i><?php echo $product['price'] ?>

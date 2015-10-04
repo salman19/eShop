@@ -7,19 +7,22 @@ img{
 	border: 3px solid #BE5E6A;
 }
 
-#avatar-form{
+#profile-form{
 	padding:10px 0 10px 20px; 
 	line-height: 30px; 
 	margin-top: 20px;
 }
 
-#avatar-form label{
+#profile-form label{
 	font-style: italic;
 	padding:0 0 2px 2px; 
 
 }
 
-#avatar-form button{
+#profile-form button{
+	margin:auto 0;
+	text-align: center;
+	position: absolute;
 	font-size: 13px;
 }
 

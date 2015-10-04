@@ -50,10 +50,15 @@
 			<big><label><?php echo $_SESSION['user']['first_name'];?> <?php echo $_SESSION['user']['last_name'];?></label></big>
 			<br><label><?php echo $_SESSION['user']['email'];?></label>
 
-			<form id="avatar-form">
-				<label><i class="icon-user"></i>upload avatar</label><br>
-				<input type="file" name="avatar" id="avatar" required>
-				<button type="submit">change</button>
+			<form id="profile-form">
+				<label><i class="icon-user"></i>update profile</label><br>
+				<input type="text" name="first_name" id="first_name" value="<?php echo $_SESSION['user']['first_name'];?>" required>
+				<input type="text" name="last_name" id="last_name" value="<?php echo $_SESSION['user']['last_name'];?>" required>
+				<br>
+				<input type="text" name="email" id="email" value="<?php echo $_SESSION['user']['email'];?>" required>
+				<input type="password" name="password" id="password" value="<?php echo $_SESSION['user']['password'];?>" required>
+				<input type="file" name="avatar" id="avatar" value="<?php echo $_SESSION['user']['avatar'];?>" required>
+				<button type="submit">save changes</button>
 			</form>
 			<label id="success-msg" class="success"></label>
 			<br>
