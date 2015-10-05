@@ -14,6 +14,7 @@
 	<meta charset="utf-8" />
 	<title>eShop</title>
 
+	<link rel="shortcut icon" href="avatar/eshop_ico.png">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" type="text/css" href="fontello/css/fontello.css">
