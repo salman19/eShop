@@ -14,7 +14,6 @@ $(function(){
 			}
 		});
 	});
-
 	$('#avatar-form').submit(function(e){
 		e.preventDefault();
 		$.ajax({
