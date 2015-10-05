@@ -14,7 +14,9 @@
 		$password = $_POST['password'];
 		$login = $conn->query("select * from Users where email='$email' AND password='$password'");
 		// Check username and password match
-		$rowcount = $login->num_rows();
+		$rowcounts = conn->num_rows($login);
+		$counts = mysqli_num_rows($login);
+		if ($rowcounts == $counts) echo " true , so there is something "; 
 		if ($rowcount == 1) {
 			$_SESSION['user'] = $conn->fetch_array($login);
 			header('Location: profile.php');
