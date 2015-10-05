@@ -14,13 +14,13 @@
 	if(isset($_POST['email']) && isset($_POST['password'])) {
 		$email = $_POST['email'];
 		echo $email;
-		echo "";
+		echo "\n";
 		echo $password;
-		echo "";
+		echo "\n";
 		$password = $_POST['password'];
 		echo $password;
 		$login = $conn->query(
-			"select * from Users where email='$email' AND password='$password'") 
+			"select * from Users where email=$email AND password=$password") 
 			;
 		echo $login[0];
 		echo $login[1];
