@@ -12,11 +12,19 @@
 	if(isset($_POST['email']) && isset($_POST['password'])) {
 		$email = $_POST['email'];
 		$password = $_POST['password'];
-		$login = $conn->query("select * from Users where email='$email' AND password='$password'");
+		echo $rowcount;
+		if ($login = $conn->query("select * from Users where email='$email' AND password='$password'")){
+			echo " - ";
+			echo $login->num_rows();
+			echo " - ";
+			echo mysqli_num_rows($login);
+			echo " - ";
+		}
 		// Check username and password match
 		$rowcounts = $login->num_rows();
 		$counts = mysqli_num_rows($login);
 		if ($rowcounts == $counts) echo " true , so there is something "; 
+		echo $rowcount;
 		if ($rowcount == 1) {
 			$_SESSION['user'] = $conn->fetch_array($login);
 			header('Location: profile.php');
