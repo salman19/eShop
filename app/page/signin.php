@@ -46,13 +46,13 @@
 		}
 		echo " *** ";
 		if ($result = $conn->query("SELECT * FROM Users WHERE email='$mail' AND password='$pass'")) {
-		    printf("Select returned %c \n", $mail);
+		    printf("Select returned %d rows with %c \n", $result->num_rows , $mail);
 		
 		    /* free result set */
 		    $result->close();
 		}
 		echo " *** ";
-		//$login = $conn->query("select * from Users where email='$email' AND password='$password'");
+		if ($login = $conn->query("select * from Users where email='$email' AND password='$password'")) echo " yeeah ";
 		// Check username and password match
 		$rowcount = $conn->num_rows($login);
 		echo $rowcount;
