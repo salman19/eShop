@@ -2,8 +2,12 @@
 	session_start();
 
 	/*	open db connection 	*/
-	mysql_connect('localhost', 'root', '');
-	mysql_select_db('eshop');
+	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+	$server = $url["host"];
+	$username = $url["user"];
+	$password = $url["pass"];
+	$db = substr($url["path"], 1);
+	$conn = new mysqli($server, $username, $password, $db);
 
 
 	 if (isset($_POST['email']) && isset($_POST['password']))
@@ -13,15 +17,15 @@
 		$last_name = $_POST['last_name'];
 		$avatar = 'avatar/' .$_FILES['avatar']['name']; 
 		$password = $_POST['password']; 
-		mysql_query(
+		$conn->query(
 			"INSERT INTO Users(email, first_name, last_name, password)
 			VALUES('$email','$first_name', '$last_name', '$password')"
 		) 
-		or die(mysql_error()); 
+		or die(mysqli_connect_error()); 
 		header("Location: signin.php");
 	}
 
-	mysql_close();
+	mysqli_close();
 ?>
 
 <html>
