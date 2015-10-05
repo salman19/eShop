@@ -67,7 +67,7 @@ CREATE TABLE `Users` (
 
 LOCK TABLES `Users` WRITE;
 /*!40000 ALTER TABLE `Users` DISABLE KEYS */;
-INSERT INTO `Users` VALUES (2,'test@email.com','test first','test last','avatar/default.png','yacute');
+INSERT INTO `Users` VALUES (1,'salman@eldash.info','Salman','ElDash','avatar/salman.png','123456') , (2,'test@email.com','test first','test last','avatar/default.png','yacute');
 /*!40000 ALTER TABLE `Users` ENABLE KEYS */;
 UNLOCK TABLES;
 
