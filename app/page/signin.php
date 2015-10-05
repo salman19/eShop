@@ -14,9 +14,9 @@
 	if(isset($_POST['email']) && isset($_POST['password'])) {
 		$email = $_POST['email'];
 		echo $email;
-		<br>
+		echo "";
 		echo $password;
-		<br>
+		echo "";
 		$password = $_POST['password'];
 		echo $password;
 		$login = $conn->query(
