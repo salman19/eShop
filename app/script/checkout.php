@@ -15,7 +15,7 @@
 			or die(mysqli_connect_error());
 		$product = mysqli_fetch_array($query);
 
-		if($conn->num_rows($query) == 1){
+		if(mysqli_num_rows($query) == 1){
 			$conn->query("update Products set stock=" . ($product['stock']-1) . 
 				" where id=$product_id" ) or die(mysqli_connect_error());
 			$conn->query("
