@@ -3,24 +3,28 @@
 	$rowcount = 1;
 
 	/*	open db connection 	*/
-	mysql_connect('localhost', 'root', '');
-	mysql_select_db('eshop');
+	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+	$server = $url["host"];
+	$username = $url["user"];
+	$password = $url["pass"];
+	$db = substr($url["path"], 1);
+	$conn = new mysqli($server, $username, $password, $db);
 
 	if(isset($_POST['email']) && isset($_POST['password'])) {
 		$email = $_POST['email'];
 		$password = $_POST['password'];
-		$login = mysql_query(
+		$login = $conn->query(
 			"select * from Users where email='$email' AND password='$password'") 
-			or die(mysql_error());
+			or die(mysqli_connect_error());
 		
 		// Check username and password match
-		$rowcount = mysql_num_rows($login);
+		$rowcount = $conn->num_rows($login);
 		if ($rowcount == 1) {
-			$_SESSION['user'] = mysql_fetch_array($login);
+			$_SESSION['user'] = mysqli_fetch_array($login);
 			header('Location: profile.php');
 		}
 	}
-	mysql_close();
+	mysqli_close();
 ?>
 
 
