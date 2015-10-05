@@ -21,14 +21,12 @@
 		echo $password;
 		$login = $conn->query(
 			"select * from Users where email='$email' AND password='$password'");
-		echo $login[0];
-		echo $login[1];
-		echo count($login);
 		// Check username and password match
 		$rowcount = $conn->num_rows($login);
 		echo $rowcount;
 		if ($rowcount == 1) {
 			$_SESSION['user'] = $conn->fetch_array($login);
+			echo $_SESSION['user'];
 			header('Location: profile.php');
 		}
 	}
