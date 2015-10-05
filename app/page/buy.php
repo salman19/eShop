@@ -6,14 +6,17 @@
 	} else
 		die("Server error");
 
-	/*	open db connection 	*/
-	mysql_connect('localhost', 'root', '');
-	mysql_select_db('eshop');
+	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+	$server = $url["host"];
+	$username = $url["user"];
+	$password = $url["pass"];
+	$db = substr($url["path"], 1);
+	$conn = new mysqli($server, $username, $password, $db);
 
-	$query = mysql_query("select * from Products where id = $product_id");
-	mysql_close();
+	$query = $conn->query("select * from Products where id = $product_id");
+	mysqli_close();
 
-	$product = mysql_fetch_array($query);
+	$product = mysqli_fetch_array($query);
 	
 ?>
 
