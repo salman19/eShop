@@ -14,24 +14,22 @@
 	if(isset($_POST['email']) && isset($_POST['password'])) {
 		$email = $_POST['email'];
 		echo $email;
-		echo "\n";
+		echo " : ";
 		echo $password;
-		echo "\n";
+		echo " : ";
 		$password = $_POST['password'];
 		echo $password;
-		echo $conn->query(
-			"select * from Users where email='$email' AND password='$password'");
-		$login = $conn->query(
-			"select * from Users where email='$email' AND password='$password'");
-		// Check username and password match
+		echo " - ";
 		echo $rowcount;
-		echo "\n";
+		echo " - ";
+		$login = $conn->query("select * from Users where email='$email' AND password='$password'");
+		// Check username and password match
 		$rowcount = $conn->num_rows($login);
 		echo $rowcount;
-		echo "\n";
+		echo " yes ";
 		if ($rowcount == 1) {
 			$_SESSION['user'] = $conn->fetch_array($login);
-			//echo $_SESSION['user'];
+			echo $_SESSION['user'];
 			header('Location: profile.php');
 		}
 	}
