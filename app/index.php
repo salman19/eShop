@@ -7,6 +7,8 @@
 	$db = substr($url["path"], 1);
 	
 	$conn = new mysqli($server, $username, $password, $db);
+	$products = $conn->query('select * from Products') or die(mysql_error());
+	
 ?>
 
 <html>
