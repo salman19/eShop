@@ -15,7 +15,7 @@
 		$password = $_POST['password'];
 		$login = $conn->query(
 			"select * from Users where email='$email' AND password='$password'") 
-			or die($conn->connect_error());
+			or die('Connect Error: ' . mysqli_connect_error());
 		
 		// Check username and password match
 		$rowcount = $conn->num_rows($login);
