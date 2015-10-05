@@ -10,17 +10,21 @@
 		      "../avatar/" . $_FILES["avatar"]["name"]);
 
 
-		mysql_connect('localhost', 'root', '');
-		mysql_select_db('eshop');
+		$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+		$server = $url["host"];
+		$username = $url["user"];
+		$password = $url["pass"];
+		$db = substr($url["path"], 1);
+		$conn = new mysqli($server, $username, $password, $db);
 
-		mysql_query('update Users set avatar = "avatar' 
+		$conn->query('update Users set avatar = "avatar' 
 			. '/' .  $_FILES["avatar"]["name"] .
 			 '" where id = ' . $_SESSION['user']['id']
 		);
 
-		$_SESSION['user'] = mysql_fetch_array(mysql_query('select * from Users'));
+		$_SESSION['user'] = mysqli_fetch_array(m$conn->query('select * from Users'));
 
-		mysql_close();
+		mysqli_close();
 	}
 	else {
 
