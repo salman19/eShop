@@ -4,20 +4,25 @@
 		$product_name = $_POST['product_name'];
 		$user_id = $_POST['user_id'];
 
-		mysql_connect('localhost', 'root', '');
-		mysql_select_db('eshop');
-		$query = mysql_query("select * from Products where id = $product_id")
-			or die(mysql_error());
-		$product = mysql_fetch_array($query);
+		$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+		$server = $url["host"];
+		$username = $url["user"];
+		$password = $url["pass"];
+		$db = substr($url["path"], 1);
+		$conn = new mysqli($server, $username, $password, $db);
+		
+		$query = $conn->query("select * from Products where id = $product_id")
+			or die(mysqli_connect_error());
+		$product = mysqli_fetch_array($query);
 
-		if(mysql_num_rows($query) == 1){
-			mysql_query("update Products set stock=" . ($product['stock']-1) . 
-				" where id=$product_id" ) or die(mysql_error());
-			mysql_query("
+		if($conn->num_rows($query) == 1){
+			$conn->query("update Products set stock=" . ($product['stock']-1) . 
+				" where id=$product_id" ) or die(mysqli_connect_error());
+			$conn->query("
 				insert into UsersProducts(user_id, product_id, product_name) 
 				values($user_id, $product_id, '$product_name')")
-			 or die(mysql_error());
-			mysql_close();
+			 or die(mysqli_connect_error());
+			mysqli_close();
 			echo "Congrats! you got it.";
 		}
 		else
