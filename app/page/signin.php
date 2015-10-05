@@ -15,12 +15,12 @@
 		$password = $_POST['password'];
 		$login = $conn->query(
 			"select * from Users where email='$email' AND password='$password'") 
-			or die(mysqli_connect_error());
+			or die($conn->connect_error());
 		
 		// Check username and password match
 		$rowcount = $conn->num_rows($login);
 		if ($rowcount == 1) {
-			$_SESSION['user'] = mysqli_fetch_array($login);
+			$_SESSION['user'] = $conn->fetch_array($login);
 			header('Location: profile.php');
 		}
 	}
