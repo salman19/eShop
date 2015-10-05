@@ -23,8 +23,11 @@
 		if ($rowcount == $counts) echo " true , so there is something "; 
 		echo $rowcount;
 		if ($rowcount == 1) {
+			echo " inside ";
 			$_SESSION['user'] = $conn->fetch_array($login);
+			echo " fetched ";
 			header('Location: profile.php');
+			echo " redirected ";
 		}
 	}
 	mysqli_close();
