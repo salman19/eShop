@@ -1,7 +1,6 @@
 <?php
 	session_start();
 	$rowcount = 1;
-	echo "signin : ";
 
 	/*	open db connection 	*/
 	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
@@ -10,56 +9,11 @@
 	$password = $url["pass"];
 	$db = substr($url["path"], 1);
 	$conn = new mysqli($server, $username, $password, $db);
-
-	if(isset($_POST['email']) && isset($_POST['password'])) {
-		$email = $_POST['email'];
-		echo $email;
-		echo " : ";
-		echo $password;
-		echo " : ";
-		$password = $_POST['password'];
-		echo $password;
-		echo " - ";
-		echo $rowcount;
-		echo " - ";
-		if ($result = $conn->query("SELECT * FROM Users LIMIT 10")) {
-		    printf("Select returned %d rows.\n", $result->num_rows);
-		
-		    /* free result set */
-		    $result->close();
-		}
-		echo " *** ";
-		$pass = '123456';
-		if ($result = $conn->query("SELECT * FROM Users WHERE password='$pass'")) {
-		    printf("Select returned %d rows.\n", $result->num_rows);
-		
-		    /* free result set */
-		    $result->close();
-		}
-		echo " *** ";
-		$mail = 'salman@eldash.info';
-		if ($result = $conn->query("SELECT * FROM Users WHERE email='$mail'")) {
-		    printf("Select returned %d rows.\n", $result->num_rows);
-		
-		    /* free result set */
-		    $result->close();
-		}
-		echo " *** ";
-		if ($result = $conn->query("SELECT * FROM Users WHERE email='$mail' AND password='$pass'")) {
-		    printf("Select returned %d rows with %c \n", $result->num_rows , $mail);
-		
-		    /* free result set */
-		    $result->close();
-		}
-		echo " *** ";
-		if ($login = $conn->query("select * from Users where email='$email' AND password='$password'")) echo " yeeah ";
+		$login = $conn->query("select * from Users where email='$email' AND password='$password'");
 		// Check username and password match
-		$rowcount = $conn->num_rows($login);
-		echo $rowcount;
-		echo " yes ";
+		$rowcount = $login->num_rows();
 		if ($rowcount == 1) {
 			$_SESSION['user'] = $conn->fetch_array($login);
-			echo $_SESSION['user'];
 			header('Location: profile.php');
 		}
 	}
