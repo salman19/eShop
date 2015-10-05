@@ -9,9 +9,12 @@
 	$password = $url["pass"];
 	$db = substr($url["path"], 1);
 	$conn = new mysqli($server, $username, $password, $db);
+	if(isset($_POST['email']) && isset($_POST['password'])) {
+		$email = $_POST['email'];
+		$password = $_POST['password'];
 		$login = $conn->query("select * from Users where email='$email' AND password='$password'");
 		// Check username and password match
-		//$rowcount = mysqli_num_rows($login);
+		$rowcount = $login->num_rows();
 		if ($rowcount == 1) {
 			$_SESSION['user'] = $conn->fetch_array($login);
 			header('Location: profile.php');
