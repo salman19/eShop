@@ -24,7 +24,7 @@
 			;
 		echo $login[0];
 		echo $login[1];
-		if (!count($login)){echo " login is null ";}
+		echo count($login);
 		// Check username and password match
 		$rowcount = $conn->num_rows($login);
 		if ($rowcount == 1) {
