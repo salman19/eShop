@@ -11,7 +11,7 @@
 	$conn = new mysqli($server, $username, $password, $db);
 		$login = $conn->query("select * from Users where email='$email' AND password='$password'");
 		// Check username and password match
-		$rowcount = mysqli_num_rows($login->);
+		$rowcount = mysqli_num_rows($login);
 		if ($rowcount == 1) {
 			$_SESSION['user'] = $conn->fetch_array($login);
 			header('Location: profile.php');
