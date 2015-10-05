@@ -17,13 +17,10 @@
 			echo " - ";
 			echo mysqli_num_rows($login);
 			echo " - ";
-			echo $login->num_rows();
-			echo " - ";
 		}
 		// Check username and password match
-		$rowcounts = $login->num_rows();
 		$counts = mysqli_num_rows($login);
-		if ($rowcounts == $counts) echo " true , so there is something "; 
+		if ($rowcount == $counts) echo " true , so there is something "; 
 		echo $rowcount;
 		if ($rowcount == 1) {
 			$_SESSION['user'] = $conn->fetch_array($login);
