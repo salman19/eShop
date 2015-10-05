@@ -46,7 +46,7 @@
 	<!-- Products -->
 	<div class="container">
 		<h2>Stock</h2>
-		<?php while($product = mysql_fetch_array($products)): ?>
+		<?php while($product = mysqli_fetch_array($products)): ?>
 			<section>
 				<label class="product-name"><?php echo $product['name']; ?></label><br>
 				<img src="<?php echo $product['image_url'] ?>">
