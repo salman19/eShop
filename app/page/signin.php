@@ -15,9 +15,9 @@
 		echo $rowcount;
 		if ($login = $conn->query("select * from Users where email='$email' AND password='$password'")){
 			echo " - ";
-			echo $login->num_rows();
-			echo " - ";
 			echo mysqli_num_rows($login);
+			echo " - ";
+			echo $login->num_rows();
 			echo " - ";
 		}
 		// Check username and password match
