@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	$rowcount = 1;
-	echo "signin : ";
+	echo "signin";
 
 	/*	open db connection 	*/
 	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
@@ -14,13 +14,12 @@
 	if(isset($_POST['email']) && isset($_POST['password'])) {
 		$email = $_POST['email'];
 		echo $email;
-		echo "$email";
 		$password = $_POST['password'];
 		$login = $conn->query(
 			"select * from Users where email='$email' AND password='$password'") 
 			or die('Connect Error: ' . mysqli_connect_error());
 		echo $login;
-		echo "$login";
+		if (!$login){echo " login is null ";}
 		// Check username and password match
 		$rowcount = $conn->num_rows($login);
 		if ($rowcount == 1) {
