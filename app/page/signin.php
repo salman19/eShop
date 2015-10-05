@@ -29,6 +29,29 @@
 		    $result->close();
 		}
 		echo " *** ";
+		if ($result = $conn->query("SELECT * FROM Users WHERE password='123456'")) {
+		    printf("Select returned %d rows.\n", $result->num_rows);
+		
+		    /* free result set */
+		    $result->close();
+		}
+		echo " *** ";
+		$pass = '123456';
+		if ($result = $conn->query("SELECT * FROM Users WHERE password='$pass'")) {
+		    printf("Select returned %d rows.\n", $result->num_rows);
+		
+		    /* free result set */
+		    $result->close();
+		}
+		echo " *** ";
+		$mail = 'salman@eldash.info';
+		if ($result = $conn->query("SELECT * FROM Users WHERE email='$mail'")) {
+		    printf("Select returned %d rows.\n", $result->num_rows);
+		
+		    /* free result set */
+		    $result->close();
+		}
+		echo " *** ";
 		$login = $conn->query("select * from Users where email='$email' AND password='$password'");
 		// Check username and password match
 		$rowcount = $conn->num_rows($login);
