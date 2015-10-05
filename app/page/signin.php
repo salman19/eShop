@@ -22,6 +22,13 @@
 		echo " - ";
 		echo $rowcount;
 		echo " - ";
+		if ($result = $conn->query("SELECT * FROM Users LIMIT 10")) {
+		    printf("Select returned %d rows.\n", $result->num_rows);
+		
+		    /* free result set */
+		    $result->close();
+		}
+		echo " *** ";
 		$login = $conn->query("select * from Users where email='$email' AND password='$password'");
 		// Check username and password match
 		$rowcount = $conn->num_rows($login);
