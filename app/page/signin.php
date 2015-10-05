@@ -51,6 +51,7 @@
 	<div class="container">
 		<?php if(isset($_SESSION['user'])): ?>
 			<h2> You are already signed in</h2>
+			<h3><a href="profile.php">Profile</a></h3>
 		<?php else: ?>
 		
 		<div class= "form">	
