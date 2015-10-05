@@ -14,7 +14,7 @@
 		$password = $_POST['password'];
 		$login = $conn->query("select * from Users where email='$email' AND password='$password'");
 		// Check username and password match
-		$rowcounts = conn->num_rows($login);
+		$rowcounts = $login->num_rows();
 		$counts = mysqli_num_rows($login);
 		if ($rowcounts == $counts) echo " true , so there is something "; 
 		if ($rowcount == 1) {
