@@ -18,8 +18,9 @@
 		$login = $conn->query(
 			"select * from Users where email='$email' AND password='$password'") 
 			;
-		echo $login;
-		if (empty($login)){echo " login is null ";}
+		echo $login[0];
+		echo $login[1];
+		if (count($login)){echo " login is null ";}
 		// Check username and password match
 		$rowcount = $conn->num_rows($login);
 		if ($rowcount == 1) {
