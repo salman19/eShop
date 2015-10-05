@@ -24,7 +24,7 @@
 		echo $rowcount;
 		if ($rowcount == 1) {
 			echo " inside ";
-			$_SESSION['user'] = $conn->fetch_array($login);
+			$_SESSION['user'] = $login->fetch_array();
 			echo " fetched ";
 			header('Location: profile.php');
 			echo " redirected ";
