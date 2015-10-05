@@ -19,6 +19,11 @@
 		echo "\n";
 		$password = $_POST['password'];
 		echo $password;
+		if ($conn->query(
+			"select * from Users where email='$email' AND password='$password'") === true){
+				echo $conn->query(
+			"select * from Users where email='$email' AND password='$password'");
+			}
 		$login = $conn->query(
 			"select * from Users where email='$email' AND password='$password'");
 		// Check username and password match
