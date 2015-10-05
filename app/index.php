@@ -1,12 +1,12 @@
 <?php
+	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 	
-	session_start();
-
-	/*	open db connection 	*/
-	mysql_connect('localhost', 'root', '');
-	mysql_select_db('eshop');
-	$products = mysql_query('select * from Products') or die(mysql_error());
-	mysql_close();
+	$server = $url["host"];
+	$username = $url["user"];
+	$password = $url["pass"];
+	$db = substr($url["path"], 1);
+	
+	$conn = new mysqli($server, $username, $password, $db);
 ?>
 
 <html>
