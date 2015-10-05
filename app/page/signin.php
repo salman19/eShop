@@ -12,22 +12,16 @@
 	if(isset($_POST['email']) && isset($_POST['password'])) {
 		$email = $_POST['email'];
 		$password = $_POST['password'];
-		echo $rowcount;
 		if ($login = $conn->query("select * from Users where email='$email' AND password='$password'")){
-			echo " - ";
 			echo mysqli_num_rows($login);
-			echo " - ";
 		}
 		// Check username and password match
 		$counts = mysqli_num_rows($login);
 		if ($rowcount == $counts) echo " true , so there is something "; 
 		echo $rowcount;
 		if ($rowcount == 1) {
-			echo " inside ";
 			$_SESSION['user'] = $login->fetch_array();
-			echo " fetched ";
 			header('Location: profile.php');
-			echo " redirected ";
 		}
 	}
 	mysqli_close();
