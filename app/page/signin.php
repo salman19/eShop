@@ -14,13 +14,14 @@
 	if(isset($_POST['email']) && isset($_POST['password'])) {
 		$email = $_POST['email'];
 		echo $email;
+		echo $password;
 		$password = $_POST['password'];
 		$login = $conn->query(
 			"select * from Users where email='$email' AND password='$password'") 
 			;
 		echo $login[0];
 		echo $login[1];
-		if (count($login)){echo " login is null ";}
+		if (!count($login)){echo " login is null ";}
 		// Check username and password match
 		$rowcount = $conn->num_rows($login);
 		if ($rowcount == 1) {
