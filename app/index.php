@@ -7,12 +7,12 @@
 	$db = substr($url["path"], 1);
 	
 	session_start();
--
--	/*	open db connection 	*/
--	mysql_connect($server, $username, $password);
--	mysql_select_db($db);
--	$products = mysql_query('select * from Products') or die(mysql_error());
--	mysql_close();
+
+	/*	open db connection 	*/
+	mysql_connect($server, $username, $password);
+	mysql_select_db($db);
+	$products = mysql_query('select * from Products') or die(mysql_error());
+	mysql_close();
 	
 ?>
 
